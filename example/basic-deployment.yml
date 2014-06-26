@@ -1,0 +1,56 @@
+name: basic-apache
+director_uuid: 687b75df-a3cd-4e86-814d-78687a1ae301 
+releases:
+- name: basu
+  version: latest
+compilation:
+  cloud_properties:
+    cpu: 2
+    disk: 32768
+    ram: 4096
+  network: basic_net
+  reuse_compilation_vms: true
+  workers: 6
+jobs:
+- instances: 1
+  name: apache
+  networks:
+  - name: basic_net
+    static_ips: null
+  persistent_disk: 2048
+  resource_pool: basic_pool
+  template: apache
+networks:
+- name: basic_net
+  subnets:
+  - range: 10.10.10.0/24
+    reserved:
+    - 10.10.10.1 - 10.10.10.11
+    gateway: 10.10.10.254
+    static:
+    - 10.10.10.12 - 10.10.10.12
+    dns:
+    - 8.8.8.8
+    cloud_properties:
+      name: Bosh_Network
+resource_pools:
+- cloud_properties:
+    cpu: 2
+    disk: 32768
+    ram: 4096
+  env:
+    bosh:
+      password: $6$6WQb6ckMUtXWP1$5iHAfNjMcxAA.GPzLhs5iUQRV3ix50RQoksdVO9ISmXcWaoF74GFe9f5sARN.UrHqeOgMTPCg51CfQvQh2oDV.
+      password_pre_hash: HggZmypmgLKQGcbrGAHjKxvaXhQzxE
+  name: basic_pool
+  network: basic_net
+  size: 1
+  stemcell:
+    name: bosh-vsphere-esxi-ubuntu
+    version: 2427
+update:
+  canaries: 1
+  canary_watch_time: 1000-30000
+  max_in_flight: 50
+  update_watch_time: 1000-30000
+
