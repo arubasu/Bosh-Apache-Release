@@ -1,0 +1,11 @@
+---
+httpd-2.2.25.tar.gz:
+  object_id: b17d0041-316f-49d9-82f6-2ae9a7d1b5bd
+  sha: !binary |-
+    MWU3OTNlYjQ3N2M2NWRmYTU4Y2RmNDdmN2JmNzhkOGNkZmY1ODA5MQ==
+  size: 7445734
+apache2/httpd-2.2.25.tar.gz:
+  object_id: 05b2f43c-4a47-44c8-bade-19b84fbf5b04
+  sha: !binary |-
+    MWU3OTNlYjQ3N2M2NWRmYTU4Y2RmNDdmN2JmNzhkOGNkZmY1ODA5MQ==
+  size: 7445734
